@@ -1,0 +1,28 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model IPO {
+  id           Int      @id @default(autoincrement())
+  symbol       String
+  companyName  String
+  issueSize    Float
+  issuePrice   Float
+  openDate     DateTime
+  closeDate    DateTime
+  listingDate  DateTime?
+  status       String
+  gmp          Float?
+  subscription Float?
+}
+
+model FAQ {
+  id       Int    @id @default(autoincrement())
+  question String
+  answer   String
+}
